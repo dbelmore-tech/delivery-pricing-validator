@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Pricing & Eligibility Validator</title>
+  </head>
+  <body>
+    <h1>Delivery Pricing & Eligibility Validator</h1>
+    <p>Enter values below to validate delivery eligibility and calculate a total.</p>
+
+    <form id="calcForm">
+      <div>
+        <label for="quantity">Quantity</label><br />
+        <input id="quantity" name="quantity" type="number" min="-999" step="1" required />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="postcode">Postcode</label><br />
+        <input id="postcode" name="postcode" type="text" placeholder="e.g., M5V 3L9" required />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="country">Country</label><br />
+        <select id="country" name="country" required>
+          <option value="" selected>Select…</option>
+          <option value="US">US</option>
+          <option value="CA">CA</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <br />
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <hr />
+
+    <h2>Result</h2>
+    <pre id="output">Fill the form and click Calculate.</pre>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
