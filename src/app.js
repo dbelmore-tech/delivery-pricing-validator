@@ -50,14 +50,21 @@ form.addEventListener("submit", (event) => {
   }
 
   // 3) Pricing + tax
-  const subtotal = getSubtotal(quantity);
-  const total = getTotal(subtotal, country);
+  try {
+    const subtotal = getSubtotal(quantity);
+    const total = getTotal(subtotal, country);
 
-  // 4) Output
-  printResult({
-    ok: true,
-    inputs: { quantity, postcode, country },
-    pricing: { subtotal, total },
-    notes: country === "US" ? "5% tax applied (US)" : "No tax applied",
-  });
+    printResult({
+      ok: true,
+      inputs: { quantity, postcode, country },
+      pricing: { subtotal, total },
+      notes: country === "US" ? "5% tax applied (US)" : "No tax applied",
+    });
+  } catch (err) {
+    printResult({
+      ok: false,
+      error: err instanceof Error ? err.message : "Pricing calculation failed.",
+      details: { quantity },
+    });
+  }
 });
