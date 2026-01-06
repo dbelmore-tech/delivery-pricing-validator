@@ -103,3 +103,21 @@ This document lists manual test cases used to validate pricing logic, delivery e
 - Expected:
   - Validation error
   - Prompt to select a country
+
+---
+
+### Case 11: CA postcode with US country
+- Quantity: 5
+- Postcode: M5V 3L9
+- Country: US
+- Expected:
+  - Validation error
+  - Message indicates invalid US ZIP code
+
+### Case 12: US ZIP with CA country
+- Quantity: 5
+- Postcode: 90210
+- Country: CA
+- Expected:
+  - Validation error
+  - Message indicates invalid Canadian postal code
